@@ -8,11 +8,9 @@
 			<th>City</th>
 			<th>State</th>
 			<th>Zip</th>
-<!-- 			<th>Vehicle Year</th>
-			<th>Make</th>
-			<th>Model</th>
-			<th>Winning Bid</th>
-			<th>Seller Payout</th> -->
+			<th>Vehicles sold</th>
+			<th>Total Profit</th>
+			<th>Average Profit</th>
 		</thead>	
 	</tr>
 	<%= @auctions.each do |auction| %>
@@ -22,11 +20,9 @@
 			<td><%= auction.city %></td>
 			<td><%= auction.state %></td>
 			<td><%= auction.zip %></td>
-<!-- 			<td>Vehicle Year</td>
-			<td>Make</td>
-			<td>Model</td>
-			<td>Winning Bid</td>
-			<td>Seller Payout</td> -->
+			<td><%= auction.vehicles.count %></td>
+			<td><%= auction.city %></td>
+			<td><%= auction.city %></td>
 	 <% end %>
 	</tr>
 </table>

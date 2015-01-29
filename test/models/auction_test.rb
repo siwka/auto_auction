@@ -23,5 +23,12 @@ class AuctionTest < ActiveSupport::TestCase
   test "city should not be too long" do
     @auction.city = "a" * 100 + "Chicago"
     assert_not @auction.valid?
-  end  
+  end
+
+  test "name should be unique" do
+    duplicate_auction = @auction.dup
+    duplicate_auction.name = @auction.name.upcase
+    @auction.save
+    assert_not duplicate_auction.valid?
+  end
 end
