@@ -11,10 +11,10 @@ class Auction < ActiveRecord::Base
 	  CSV.foreach(file.path, headers: true) do |row|
 	  	auction = find_by_name(row['auction name']) || new
 	    auction.attributes = { name: row['auction name'],
-	                    							street: row['street address'],
-	                    							city: row['city'],
-	                    							state: row['state'],
-	                    							zip: row['zip']}
+	                    			 street: row['street address'],
+	                    			 city: row['city'],
+	                    			 state: row['state'],
+	                    			 zip: row['zip']}
 	    auction.save!
 	    auction.vehicles.create!( year: row['vehicle year'],
 	    															make: row['vehicle make'],
@@ -24,5 +24,13 @@ class Auction < ActiveRecord::Base
 																    payout: row['seller payout'],
 																    description: row['description'])
 	  end
-	end                    
+	end
+
+	def auction_profit
+		(self.vehicles.sum('bid') - self.vehicles.sum('payout')).round(2) if self.vehicles.any?
+	end
+
+	def average_profit
+		(self.auction_profit / self.vehicles.count).round(2) if self.vehicles.any?
+	end                
 end

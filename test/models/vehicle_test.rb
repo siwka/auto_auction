@@ -29,5 +29,21 @@ class VehicleTest < ActiveSupport::TestCase
   test "auction id should be present" do
     @vehicle.auction_id = nil
     assert_not @vehicle.valid?
-  end  
+  end
+
+  test "stock should be present" do
+    @vehicle.stock = nil
+    assert_not @vehicle.valid?
+  end
+
+  test "profit should be substractions of bid and payout" do
+  	assert_equal @vehicle.profit, @vehicle.bid - @vehicle.payout
+  end
+
+  # test "stock should be unique" do   #siwka something else to add - not duplicate vehicles
+  #   duplicate_vehicle = @vehicle.dup
+  #   duplicate_vehicle.stock = 55124
+  #   @vehicle.save
+  #   assert_not duplicate_vehicle.valid?
+  # end 
 end

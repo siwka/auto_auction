@@ -4,10 +4,7 @@
 	<thead>
 		<tr>
 			<th>Auction Name</th>
-			<th>Street Address</th>
 			<th>City</th>
-			<th>State</th>
-			<th>Zip</th>
 			<th>Vehicles sold</th>
 			<th>Total Profit</th>
 			<th>Average Profit</th>
@@ -16,13 +13,10 @@
 	<%= @auctions.each do |auction| %>
 		<tr>
 			<td><%= auction.name %></td>
-			<td><%= auction.street %></td>
 			<td><%= auction.city %></td>
-			<td><%= auction.state %></td>
-			<td><%= auction.zip %></td>
 			<td><%= auction.vehicles.count %></td>
-			<td><%= auction.city %></td>
-			<td><%= auction.city %></td>
+			<td><%= auction.auction_profit %></td>
+			<td><%= auction.average_profit %></td>
 	 <% end %>
 	</tr>
 </table>
