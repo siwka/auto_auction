@@ -31,4 +31,22 @@ class AuctionTest < ActiveSupport::TestCase
     @auction.save
     assert_not duplicate_auction.valid?
   end
+
+  test "auction profit shoud be equal to sum of all action vehicle profits" do
+    @auction = auctions(:auction_one)
+    @veh1 = vehicles(:one)
+    @veh2 = vehicles(:two)
+    @veh3 = vehicles(:four)
+    suma = @veh1.profit + @veh2.profit + @veh3.profit
+    assert_equal @auction.auction_profit, suma
+  end
+
+  test "auction average shoud be equal the auction made per vehicle" do
+    @auction = auctions(:auction_one)
+    @veh1 = vehicles(:one)
+    @veh2 = vehicles(:two)
+    @veh3 = vehicles(:four)
+    aver = ((@veh1.profit + @veh2.profit + @veh3.profit)/3).round(2)
+    assert_equal @auction.average_profit, aver
+  end  
 end

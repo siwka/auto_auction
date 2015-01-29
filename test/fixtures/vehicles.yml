@@ -1,21 +1,41 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  make: MyString
-  model: MyString
+  make: Ford
+  model: Taurus
   stock: 1
-  bid: 9.99
-  payout: 9.99
+  bid: 11000
+  payout: 9500
   description: MyText
   year: 2015-01-29
-  auction_id: 
+  auction: auction_one
 
 two:
-  make: MyString
-  model: MyString
-  stock: 1
-  bid: 9.99
-  payout: 9.99
+  make: Honda
+  model: Civix
+  stock: 2
+  bid: 9800
+  payout: 8000
   description: MyText
   year: 2015-01-29
-  auction_id: 
+  auction: auction_one 
+
+three:
+  make: Ford
+  model: Mustang
+  stock: 3
+  bid: 22500
+  payout: 19000
+  description: MyText
+  year: 2015-01-29
+  auction: auction_b 
+
+four:
+  make: Toyota
+  model: Corolla
+  stock: 4
+  bid: 9800
+  payout: 7000
+  description: MyText
+  year: 2015-01-29
+  auction: auction_one 
