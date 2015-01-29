@@ -1,0 +1,38 @@
+<h2>Auctions</h2>
+
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Auction Name</th>
+			<th>Street Address</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zip</th>
+<!-- 			<th>Vehicle Year</th>
+			<th>Make</th>
+			<th>Model</th>
+			<th>Winning Bid</th>
+			<th>Seller Payout</th> -->
+		</thead>	
+	</tr>
+	<%= @auctions.each do |auction| %>
+		<tr>
+			<td><%= auction.name %></td>
+			<td><%= auction.street %></td>
+			<td><%= auction.city %></td>
+			<td><%= auction.state %></td>
+			<td><%= auction.zip %></td>
+<!-- 			<td>Vehicle Year</td>
+			<td>Make</td>
+			<td>Model</td>
+			<td>Winning Bid</td>
+			<td>Seller Payout</td> -->
+	 <% end %>
+	</tr>
+</table>
+
+<h2>Import Auctions</h2>
+<%= form_tag import_auctions_path, multipart: true do %>
+  <%= file_field_tag :file, class: 'form-control' %>
+  <%= submit_tag "Import", class: "btn btn-primary" %>
+<% end %>

@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class AuctionsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+	test "should get index" do
+		get :index
+		assert_response :success
+		assert_select "h2", "Auctions"
+	end
 end
