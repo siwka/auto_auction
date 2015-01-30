@@ -15,5 +15,7 @@
 <p>d. The average profit the auction made per vehicle.</p></li>
 </ol>
 
+<p>Run:</p>
+
 <p>On main page load cvs file to see results.</p>
 
